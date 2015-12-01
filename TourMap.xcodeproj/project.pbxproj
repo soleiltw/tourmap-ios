@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0211828E7343104A361A50C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */; };
 		1C1699A61BF6623300339DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699A51BF6623300339DF4 /* AppDelegate.swift */; };
 		1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699A71BF6623300339DF4 /* ViewController.swift */; };
 		1C1699AB1BF6623300339DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699A91BF6623300339DF4 /* Main.storyboard */; };
@@ -14,6 +15,12 @@
 		1C1699B01BF6623300339DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AE1BF6623300339DF4 /* LaunchScreen.storyboard */; };
 		1C1699BB1BF6623300339DF4 /* TourMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699BA1BF6623300339DF4 /* TourMapTests.swift */; };
 		1C1699C61BF6623300339DF4 /* TourMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699C51BF6623300339DF4 /* TourMapUITests.swift */; };
+		1CA797481C0D796A0015FF51 /* TMEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA797471C0D796A0015FF51 /* TMEvent.swift */; };
+		1CA797491C0D796A0015FF51 /* TMEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA797471C0D796A0015FF51 /* TMEvent.swift */; };
+		1CA7974B1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */; };
+		1CA7974C1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */; };
+		1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
+		1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08FF4725F9908413608468CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		1C1699A21BF6623300339DF4 /* TourMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1699A51BF6623300339DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C1699A71BF6623300339DF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +55,12 @@
 		1C1699C11BF6623300339DF4 /* TourMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TourMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1699C51BF6623300339DF4 /* TourMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMapUITests.swift; sourceTree = "<group>"; };
 		1C1699C71BF6623300339DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CA797471C0D796A0015FF51 /* TMEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMEvent.swift; sourceTree = "<group>"; };
+		1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMGraphical.swift; sourceTree = "<group>"; };
+		1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TourMap-Briding-Header.h"; sourceTree = "<group>"; };
+		6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0211828E7343104A361A50C7 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,8 @@
 				1C1699B91BF6623300339DF4 /* TourMapTests */,
 				1C1699C41BF6623300339DF4 /* TourMapUITests */,
 				1C1699A31BF6623300339DF4 /* Products */,
+				2473D94842560BD58FDC3638 /* Pods */,
+				A0F18DDEE670356658F64AE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +114,12 @@
 		1C1699A41BF6623300339DF4 /* TourMap */ = {
 			isa = PBXGroup;
 			children = (
+				1CA797461C0D79230015FF51 /* Objects */,
 				1C1699A51BF6623300339DF4 /* AppDelegate.swift */,
 				1C1699A71BF6623300339DF4 /* ViewController.swift */,
+				1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */,
 				1C1699A91BF6623300339DF4 /* Main.storyboard */,
+				1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */,
 				1C1699AC1BF6623300339DF4 /* Assets.xcassets */,
 				1C1699AE1BF6623300339DF4 /* LaunchScreen.storyboard */,
 				1C1699B11BF6623300339DF4 /* Info.plist */,
@@ -125,6 +145,32 @@
 			path = TourMapUITests;
 			sourceTree = "<group>";
 		};
+		1CA797461C0D79230015FF51 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				1CA797471C0D796A0015FF51 /* TMEvent.swift */,
+				1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		2473D94842560BD58FDC3638 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				08FF4725F9908413608468CC /* Pods.debug.xcconfig */,
+				6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A0F18DDEE670356658F64AE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C1699CA1BF6623300339DF4 /* Build configuration list for PBXNativeTarget "TourMap" */;
 			buildPhases = (
+				3E48AD5AA3D75630C599C919 /* Check Pods Manifest.lock */,
 				1C16999E1BF6623300339DF4 /* Sources */,
 				1C16999F1BF6623300339DF4 /* Frameworks */,
 				1C1699A01BF6623300339DF4 /* Resources */,
+				6AFF1BF17980689EDFC86DA7 /* Embed Pods Frameworks */,
+				310FF93C60F3DF6D7918CF3D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -187,12 +236,14 @@
 		1C16999A1BF6623300339DF4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = TM;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Soleil Studio";
 				TargetAttributes = {
 					1C1699A11BF6623300339DF4 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 8DCXL25R37;
 					};
 					1C1699B51BF6623300339DF4 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -251,12 +302,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		310FF93C60F3DF6D7918CF3D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E48AD5AA3D75630C599C919 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6AFF1BF17980689EDFC86DA7 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C16999E1BF6623300339DF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA7974B1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */,
 				1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */,
+				1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */,
+				1CA797481C0D796A0015FF51 /* TMEvent.swift in Sources */,
 				1C1699A61BF6623300339DF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +367,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CA7974C1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */,
+				1CA797491C0D796A0015FF51 /* TMEvent.swift in Sources */,
 				1C1699BB1BF6623300339DF4 /* TourMapTests.swift in Sources */,
+				1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,23 +502,31 @@
 		};
 		1C1699CB1BF6623300339DF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08FF4725F9908413608468CC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TourMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.soleil.TourMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TourMap/TourMap-Briding-Header.h";
 			};
 			name = Debug;
 		};
 		1C1699CC1BF6623300339DF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TourMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.soleil.TourMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TourMap/TourMap-Briding-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +597,7 @@
 				1C1699CC1BF6623300339DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C1699CD1BF6623300339DF4 /* Build configuration list for PBXNativeTarget "TourMapTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +606,7 @@
 				1C1699CF1BF6623300339DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C1699D01BF6623300339DF4 /* Build configuration list for PBXNativeTarget "TourMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +615,7 @@
 				1C1699D21BF6623300339DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
