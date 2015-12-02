@@ -30,6 +30,7 @@ PODS:
   - Facebook-iOS-SDK (3.24.1):
     - Bolts (~> 1.2)
   - GestureRecognizerClosures (2.0.0)
+  - MaryPopin (1.4.2)
   - Parse (1.9.1):
     - Bolts/Tasks (>= 1.4.0)
 
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - BFDragGestureRecognizer
   - Facebook-iOS-SDK
   - GestureRecognizerClosures
+  - MaryPopin
   - Parse
 
 SPEC CHECKSUMS:
@@ -46,6 +48,7 @@ SPEC CHECKSUMS:
   Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
   Facebook-iOS-SDK: 08689c2690dc4e087b9c8e171e48667608b72a2a
   GestureRecognizerClosures: b4f906a027ad39fb46f8e31e167a51ddb79d8110
+  MaryPopin: 24affc7fab9608dcad88279e32e774e5de5d54ac
   Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
 
 COCOAPODS: 0.39.0

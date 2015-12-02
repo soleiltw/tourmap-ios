@@ -15,6 +15,7 @@
 		1C1699B01BF6623300339DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AE1BF6623300339DF4 /* LaunchScreen.storyboard */; };
 		1C1699BB1BF6623300339DF4 /* TourMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699BA1BF6623300339DF4 /* TourMapTests.swift */; };
 		1C1699C61BF6623300339DF4 /* TourMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699C51BF6623300339DF4 /* TourMapUITests.swift */; };
+		1C23B8C11C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23B8C01C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift */; };
 		1CA797481C0D796A0015FF51 /* TMEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA797471C0D796A0015FF51 /* TMEvent.swift */; };
 		1CA797491C0D796A0015FF51 /* TMEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA797471C0D796A0015FF51 /* TMEvent.swift */; };
 		1CA7974B1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */; };
@@ -55,6 +56,7 @@
 		1C1699C11BF6623300339DF4 /* TourMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TourMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1699C51BF6623300339DF4 /* TourMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMapUITests.swift; sourceTree = "<group>"; };
 		1C1699C71BF6623300339DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C23B8C01C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMStickerInfoViewController.swift; sourceTree = "<group>"; };
 		1CA797471C0D796A0015FF51 /* TMEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMEvent.swift; sourceTree = "<group>"; };
 		1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMGraphical.swift; sourceTree = "<group>"; };
 		1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1CA797461C0D79230015FF51 /* Objects */,
 				1C1699A51BF6623300339DF4 /* AppDelegate.swift */,
 				1C1699A71BF6623300339DF4 /* ViewController.swift */,
+				1C23B8C01C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift */,
 				1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */,
 				1C1699A91BF6623300339DF4 /* Main.storyboard */,
 				1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */,
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CA7974B1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */,
+				1C23B8C11C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift in Sources */,
 				1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */,
 				1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */,
 				1CA797481C0D796A0015FF51 /* TMEvent.swift in Sources */,

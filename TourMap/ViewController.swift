@@ -105,6 +105,22 @@ class ViewController: UIViewController {
                     
                     view.onTap({ (UITapGestureRecognizer) -> Void in
                         print("View.frame = \(view.frame)")
+                        
+                        let popViewController: TMStickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TMStickerInfoViewController") as! TMStickerInfoViewController
+                        
+                        popViewController.sticker = sticker
+                        
+                        popViewController.modalPresentationStyle = .Popover
+                        popViewController.preferredContentSize = CGSizeMake(400, 300)
+                        
+                        let popOverViewController = popViewController.popoverPresentationController
+                        popOverViewController?.permittedArrowDirections = .Any
+                        popOverViewController?.sourceView = self.mapImageView
+                        popOverViewController?.sourceRect = CGRectMake(view.center.x, view.center.y, 1, 1)
+                        
+                        self.presentViewController(popViewController, animated: true, completion: { () -> Void in
+                            popViewController.contentTextView.scrollRangeToVisible(NSMakeRange(0, 1))
+                        })
                     })
                 }
             }

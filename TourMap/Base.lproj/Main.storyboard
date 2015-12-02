@@ -48,5 +48,56 @@
             </objects>
             <point key="canvasLocation" x="305" y="350"/>
         </scene>
+        <!--Sticker Info View Controller-->
+        <scene sceneID="L4C-Ix-I0t">
+            <objects>
+                <viewController storyboardIdentifier="TMStickerInfoViewController" id="IyJ-g8-0Yh" customClass="TMStickerInfoViewController" customModule="TourMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ySH-GO-EhL"/>
+                        <viewControllerLayoutGuide type="bottom" id="3rO-k3-sNR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e88-ux-yPw">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoc-NT-4Xa">
+                                <rect key="frame" x="20" y="28" width="560" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AT5-hv-m3e">
+                                <rect key="frame" x="20" y="57" width="560" height="523"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam blandit maximus lacus, vel blandit arcu aliquet in. Aliquam erat volutpat. Morbi lacinia nulla vitae augue vehicula, id vehicula massa pellentesque. Ut id nisi pellentesque, aliquet magna et, consequat mi. Fusce orci sapien, eleifend a lacus eget, rhoncus rhoncus nisi. Vestibulum ultricies purus ipsum. Nulla facilisi. Proin id augue risus. Maecenas pellentesque sollicitudin eleifend. Phasellus ac porttitor ex. Suspendisse porta mauris quam, ac vehicula diam congue non. Phasellus vel turpis ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel lacinia massa, ut sodales erat. Donec quis leo non odio hendrerit ultricies. Phasellus at scelerisque orci.
+
+In iaculis massa enim, vel pretium felis lacinia a. Nullam vestibulum est quis lectus hendrerit, id accumsan tortor fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed risus sapien, fringilla in dui sed, vulputate tincidunt felis. Morbi convallis nec ligula sed volutpat. Etiam a leo at nunc blandit luctus. Vestibulum rutrum nisi lectus. In malesuada, leo et imperdiet pulvinar, justo orci congue lectus, nec scelerisque mi velit sit amet dui. Donec rhoncus nulla vitae libero interdum suscipit. Nunc non elementum nibh. Proin sit amet eros quam. Fusce varius purus viverra nibh vulputate vulputate.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AT5-hv-m3e" firstAttribute="top" secondItem="Aoc-NT-4Xa" secondAttribute="bottom" constant="8" id="3lW-7A-iw7"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="AT5-hv-m3e" secondAttribute="leading" id="8mt-eT-BJV"/>
+                            <constraint firstItem="Aoc-NT-4Xa" firstAttribute="top" secondItem="ySH-GO-EhL" secondAttribute="bottom" constant="8" id="CMV-Hd-DKj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Aoc-NT-4Xa" secondAttribute="leading" id="L4n-1K-o8Z"/>
+                            <constraint firstItem="3rO-k3-sNR" firstAttribute="top" secondItem="AT5-hv-m3e" secondAttribute="bottom" constant="20" id="dI6-w3-dIX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Aoc-NT-4Xa" secondAttribute="trailing" id="fuZ-FG-rq8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AT5-hv-m3e" secondAttribute="trailing" id="i2k-Sz-6xU"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="contentTextView" destination="AT5-hv-m3e" id="DmE-Az-1RJ"/>
+                        <outlet property="titleLabel" destination="Aoc-NT-4Xa" id="q6W-7K-dpx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNK-nb-nVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957" y="350"/>
+        </scene>
     </scenes>
 </document>
