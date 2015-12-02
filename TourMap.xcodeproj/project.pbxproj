@@ -505,6 +505,7 @@
 			baseConfigurationReference = 08FF4725F9908413608468CC /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TourMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -520,6 +521,7 @@
 			baseConfigurationReference = 6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = TourMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

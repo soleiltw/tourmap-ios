@@ -16,8 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var canvasTransformScale : Float = 0.5
-    var stickerTransformScale : Float = 0.3
+    var canvasTransformScale : Float = 0.6
+    var stickerTransformScale : Float = 0.4
     var mapImageView: UIImageView!
     var startCenter: CGPoint!
     
