@@ -22,6 +22,7 @@
 		1CA7974C1C0D7D7A0015FF51 /* TMGraphical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */; };
 		1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 		1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
+		1CB3E5BA1C0F017100F40503 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMGraphical.swift; sourceTree = "<group>"; };
 		1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TourMap-Briding-Header.h"; sourceTree = "<group>"; };
+		1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB3E5BA1C0F017100F40503 /* CoreGraphics.framework in Frameworks */,
 				0211828E7343104A361A50C7 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +172,7 @@
 		A0F18DDEE670356658F64AE6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */,
 				E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */,
 			);
 			name = Frameworks;

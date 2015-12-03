@@ -25,4 +25,12 @@ class TMStickerInfoViewController: UIViewController {
         self.contentTextView.scrollRangeToVisible(NSMakeRange(0, 1))
     }
 
+    /**
+     To dismiss current view controller
+     
+     - parameter sender: The touched object
+     */
+    @IBAction func dismiss(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

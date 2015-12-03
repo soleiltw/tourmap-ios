@@ -68,15 +68,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AT5-hv-m3e">
-                                <rect key="frame" x="20" y="57" width="560" height="523"/>
+                                <rect key="frame" x="20" y="57" width="560" height="485"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam blandit maximus lacus, vel blandit arcu aliquet in. Aliquam erat volutpat. Morbi lacinia nulla vitae augue vehicula, id vehicula massa pellentesque. Ut id nisi pellentesque, aliquet magna et, consequat mi. Fusce orci sapien, eleifend a lacus eget, rhoncus rhoncus nisi. Vestibulum ultricies purus ipsum. Nulla facilisi. Proin id augue risus. Maecenas pellentesque sollicitudin eleifend. Phasellus ac porttitor ex. Suspendisse porta mauris quam, ac vehicula diam congue non. Phasellus vel turpis ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel lacinia massa, ut sodales erat. Donec quis leo non odio hendrerit ultricies. Phasellus at scelerisque orci.
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam blandit maximus lacus, vel blandit arcu aliquet in. Aliquam erat volutpat. Morbi lacinia nulla vitae augue vehicula, id vehicula massa pellentesque. Ut id nisi pellentesque, aliquet magna et, consequat mi. Fusce orci sapien, eleifend a lacus eget, rhoncus rhoncus nisi. Vestibulum ultricies purus ipsum. Nulla facilisi. Proin id augue risus. Maecenas pellentesque sollicitudin eleifend. Phasellus ac porttitor ex. Suspendisse porta mauris quam, ac vehicula diam congue non. Phasellus vel turpis ipsum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel lacinia massa, ut sodales erat. Donec quis leo non odio hendrerit ultricies. Phasellus at scelerisque orci.
 
-In iaculis massa enim, vel pretium felis lacinia a. Nullam vestibulum est quis lectus hendrerit, id accumsan tortor fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed risus sapien, fringilla in dui sed, vulputate tincidunt felis. Morbi convallis nec ligula sed volutpat. Etiam a leo at nunc blandit luctus. Vestibulum rutrum nisi lectus. In malesuada, leo et imperdiet pulvinar, justo orci congue lectus, nec scelerisque mi velit sit amet dui. Donec rhoncus nulla vitae libero interdum suscipit. Nunc non elementum nibh. Proin sit amet eros quam. Fusce varius purus viverra nibh vulputate vulputate.</mutableString>
+In iaculis massa enim, vel pretium felis lacinia a. Nullam vestibulum est quis lectus hendrerit, id accumsan tortor fringilla. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed risus sapien, fringilla in dui sed, vulputate tincidunt felis. Morbi convallis nec ligula sed volutpat. Etiam a leo at nunc blandit luctus. Vestibulum rutrum nisi lectus. In malesuada, leo et imperdiet pulvinar, justo orci congue lectus, nec scelerisque mi velit sit amet dui. Donec rhoncus nulla vitae libero interdum suscipit. Nunc non elementum nibh. Proin sit amet eros quam. Fusce varius purus viverra nibh vulputate vulputate.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxg-N9-86B">
+                                <rect key="frame" x="20" y="550" width="54" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="dismiss:" destination="IyJ-g8-0Yh" eventType="touchUpInside" id="oby-xW-iaJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -85,10 +93,18 @@ In iaculis massa enim, vel pretium felis lacinia a. Nullam vestibulum est quis l
                             <constraint firstAttribute="leadingMargin" secondItem="AT5-hv-m3e" secondAttribute="leading" id="8mt-eT-BJV"/>
                             <constraint firstItem="Aoc-NT-4Xa" firstAttribute="top" secondItem="ySH-GO-EhL" secondAttribute="bottom" constant="8" id="CMV-Hd-DKj"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Aoc-NT-4Xa" secondAttribute="leading" id="L4n-1K-o8Z"/>
+                            <constraint firstItem="dxg-N9-86B" firstAttribute="top" secondItem="AT5-hv-m3e" secondAttribute="bottom" constant="8" id="W4T-iu-RYk"/>
                             <constraint firstItem="3rO-k3-sNR" firstAttribute="top" secondItem="AT5-hv-m3e" secondAttribute="bottom" constant="20" id="dI6-w3-dIX"/>
+                            <constraint firstItem="3rO-k3-sNR" firstAttribute="top" secondItem="dxg-N9-86B" secondAttribute="bottom" constant="20" id="euV-Vv-fP3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Aoc-NT-4Xa" secondAttribute="trailing" id="fuZ-FG-rq8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AT5-hv-m3e" secondAttribute="trailing" id="i2k-Sz-6xU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dxg-N9-86B" secondAttribute="leading" id="zdc-c2-bCW"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="dI6-w3-dIX"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="contentTextView" destination="AT5-hv-m3e" id="DmE-Az-1RJ"/>

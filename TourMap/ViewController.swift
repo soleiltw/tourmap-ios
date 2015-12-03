@@ -13,11 +13,15 @@ import Parse
 
 class ViewController: UIViewController {
 
+    var mapViewBlurView: UIView?
+    
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     var canvasTransformScale : Float = 0.6
-    var stickerTransformScale : Float = 0.4
+    var stickerTransformScale : Float = 0.3
+    var blurEffectAlpha : CGFloat = 0.6
+    
     var mapImageView: UIImageView!
     var startCenter: CGPoint!
     
@@ -52,6 +56,13 @@ class ViewController: UIViewController {
             
             self.mapImageView.frame = CGRectMake(0, 0, CGFloat(scaleWidth), CGFloat(scaleHeight))
             self.scrollView.contentSize = self.mapImageView.frame.size
+            
+            // Init blur effect
+            self.mapViewBlurView = UIView()
+            self.mapViewBlurView?.backgroundColor = UIColor.blackColor()
+            self.mapViewBlurView!.alpha = self.blurEffectAlpha
+            self.mapViewBlurView!.hidden = true
+            self.mapImageView.addSubview(self.mapViewBlurView!)
             
             self.queryStickersRelation(eventObject, mapViewFrame:self.mapImageView.frame)
         }
@@ -93,10 +104,11 @@ class ViewController: UIViewController {
                     
                     let view: UIImageView = UIImageView()
                     
-                    view.imageFromUrl(sticker.imageFile.url!)
+                    view.imageFromUrl(sticker.imageFile.url!, outlineColor: UIColor.whiteColor())
                     view.contentMode = UIViewContentMode.ScaleAspectFill
                     view.frame = randomRect
                     view.userInteractionEnabled = true
+                    
                     self.mapImageView.addSubview(view)
                     
                     let holdDragRecognizer:BFDragGestureRecognizer = BFDragGestureRecognizer()
@@ -137,6 +149,12 @@ class ViewController: UIViewController {
         let view: UIView! = recognizer.view
         
         if (recognizer.state == UIGestureRecognizerState.Began) {
+            
+            // Start blur effect
+            self.mapViewBlurView!.hidden = false
+            
+            self.mapViewBlurView!.frame = self.mapImageView.bounds
+            
             startCenter = view.center
             
             view.superview!.bringSubviewToFront(view)
@@ -153,6 +171,8 @@ class ViewController: UIViewController {
             view.center = center
             
         } else if (recognizer.state == UIGestureRecognizerState.Ended || recognizer.state == UIGestureRecognizerState.Cancelled) {
+            
+            self.mapViewBlurView!.hidden = true
             
             UIView.animateWithDuration(0.2, animations: { () -> Void in
                 view.transform  = CGAffineTransformIdentity
