@@ -22,7 +22,8 @@ class ViewController: UIViewController {
     /// The canvas need to transform scale.
     var canvasTransformScale : Float = 0.6
     
-    var stickerTransformScale : Float = 0.3
+    var stickerTransformScale : Float = 0.6
+    
     var blurEffectAlpha : CGFloat = 0.6
     
     var mapImageView: UIImageView!
@@ -86,31 +87,21 @@ class ViewController: UIViewController {
             self.loadingView?.stopAnimating()
             
             if objects != nil {
+                
+                let stickerInView : TMStickToViewManager = TMStickToViewManager()
+                
                 for object : PFObject in objects! {
                     
                     let sticker = object as! TMGraphical
                     
+                    let scaleWidth : CGFloat = CGFloat(Float(sticker.dimensionsWidth) * self.stickerTransformScale)
+                    let scaleHeight : CGFloat = CGFloat(Float(sticker.dimensionsHeight) * self.stickerTransformScale)
+                    
+                    let withSize: CGSize = CGSizeMake(scaleWidth, scaleHeight)
+                    
                     // Find a random position for the color view, that doesn't intersect other views.
-                    var randomRect: CGRect = CGRectZero
-                    var canPlace = false
-                    while (!canPlace) {
-                        let randomPoint: CGPoint = CGPointMake(CGFloat(random()) % CGRectGetWidth(mapViewFrame), CGFloat(random()) % CGRectGetHeight(mapViewFrame));
-                        
-                        // Make sure not to out of bound
-                        let scaleWidth = Float(sticker.dimensionsWidth) * self.stickerTransformScale
-                        let scaleHeight = Float(sticker.dimensionsHeight) * self.stickerTransformScale
-                        
-                        randomRect = CGRectMake(randomPoint.x, randomPoint.y, CGFloat(scaleWidth), CGFloat(scaleHeight))
-                        
-                        canPlace = true
-                        for subview: UIView in self.mapImageView.subviews {
-                            if (CGRectIntersectsRect(randomRect, subview.frame) ||
-                                CGRectGetMaxX(randomRect) > CGRectGetMaxX(mapViewFrame) || CGRectGetMaxY(randomRect) > CGRectGetMaxY(mapViewFrame)) {
-                                    canPlace = false
-                                    break
-                            }
-                        }
-                    }
+                    let randomPoint: CGPoint = stickerInView.randomRect(self.mapImageView.frame, withSize:withSize)
+                    let randomRect : CGRect = CGRectMake(randomPoint.x, randomPoint.y, withSize.width, withSize.height)
                     
                     let view: UIImageView = UIImageView()
                     
@@ -150,7 +141,7 @@ class ViewController: UIViewController {
             
         })
     }
-
+    
     /**
         Handle drag recoginized
         - Parameters

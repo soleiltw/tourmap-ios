@@ -23,6 +23,7 @@
 		1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 		1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 		1CB3E5BA1C0F017100F40503 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */; };
+		1CB3E5BC1C1041BC00F40503 /* TMStickToViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3E5BB1C1041BC00F40503 /* TMStickToViewManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TourMap-Briding-Header.h"; sourceTree = "<group>"; };
 		1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1CB3E5BB1C1041BC00F40503 /* TMStickToViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMStickToViewManager.swift; sourceTree = "<group>"; };
 		6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -119,11 +121,11 @@
 		1C1699A41BF6623300339DF4 /* TourMap */ = {
 			isa = PBXGroup;
 			children = (
+				1CB3E5BD1C10429B00F40503 /* ViewControllers */,
 				1CA797461C0D79230015FF51 /* Objects */,
+				1CB3E5BF1C1043EC00F40503 /* Manager */,
+				1CB3E5BE1C1043C400F40503 /* Extension */,
 				1C1699A51BF6623300339DF4 /* AppDelegate.swift */,
-				1C1699A71BF6623300339DF4 /* ViewController.swift */,
-				1C23B8C01C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift */,
-				1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */,
 				1C1699A91BF6623300339DF4 /* Main.storyboard */,
 				1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */,
 				1C1699AC1BF6623300339DF4 /* Assets.xcassets */,
@@ -158,6 +160,31 @@
 				1CA7974A1C0D7D7A0015FF51 /* TMGraphical.swift */,
 			);
 			name = Objects;
+			sourceTree = "<group>";
+		};
+		1CB3E5BD1C10429B00F40503 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C1699A71BF6623300339DF4 /* ViewController.swift */,
+				1C23B8C01C0ED1EE00C5DFEB /* TMStickerInfoViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1CB3E5BE1C1043C400F40503 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		1CB3E5BF1C1043EC00F40503 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1CB3E5BB1C1041BC00F40503 /* TMStickToViewManager.swift */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 		2473D94842560BD58FDC3638 /* Pods */ = {
@@ -367,6 +394,7 @@
 				1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */,
 				1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */,
 				1CA797481C0D796A0015FF51 /* TMEvent.swift in Sources */,
+				1CB3E5BC1C1041BC00F40503 /* TMStickToViewManager.swift in Sources */,
 				1C1699A61BF6623300339DF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
