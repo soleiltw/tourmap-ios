@@ -94,6 +94,7 @@ class ViewController: UIViewController {
                     
                     let sticker = object as! TMGraphical
                     
+                    // Setup scale size
                     let scaleWidth : CGFloat = CGFloat(Float(sticker.dimensionsWidth) * self.stickerTransformScale)
                     let scaleHeight : CGFloat = CGFloat(Float(sticker.dimensionsHeight) * self.stickerTransformScale)
                     

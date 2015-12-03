@@ -20,7 +20,7 @@ public class TMEvent : PFObject, PFSubclassing {
     }
     
     /**
-     To initialize for the Parse object.
+        To initialize for the Parse object.
      */
     override public class func initialize() {
         struct Static {
@@ -31,6 +31,11 @@ public class TMEvent : PFObject, PFSubclassing {
         }
     }
     
+    /**
+     Refrence class name to Parse
+     
+     - returns: The class name on Parse
+     */
     public static func parseClassName() -> String {
         return "Event"
     }

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// To extend the image loading from network.
 extension UIImageView {
     
     /**
@@ -54,7 +55,7 @@ extension UIImageView {
         - Parameters:
             - image: The original image.
             - color: The color for border.
-        - Returns: The image with border color.
+        - returns: The image with border color.
     */
     public func drawOutline(image:UIImage, color:UIColor) -> UIImage {
         

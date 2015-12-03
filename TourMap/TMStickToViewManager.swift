@@ -16,7 +16,8 @@ public class TMStickToViewManager: NSObject {
      
      - Parameters
         - refrenceFrame: For the boundary.
-     - Returns: The random point
+     
+     - returns: The random point.
      */
     public func randomRect(refrenceFrame: CGRect, withSize:CGSize) -> CGPoint {
         var randomPoint : CGPoint = CGPointZero
@@ -31,7 +32,7 @@ public class TMStickToViewManager: NSObject {
      - Parameters
         - refrenceView: The refrence main view
         - withSize: With the size to compare
-     - Returns: The point that fit for the view
+     - returns: The point that fit for the view.
      */
     public func randomRectWithNoIntersect(refrenceView: UIView, withSize:CGSize) -> CGPoint {
         var randomPoint : CGPoint = CGPointZero

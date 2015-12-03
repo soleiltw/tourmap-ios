@@ -9,6 +9,7 @@
 import Foundation
 import Parse
 
+/// Graphical object hold the data from Parse
 public class TMGraphical: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var imageFile : PFFile
@@ -24,6 +25,11 @@ public class TMGraphical: PFObject, PFSubclassing {
         }
     }
     
+    /**
+     Refrence class name to Parse
+     
+     - returns: The class name on Parse
+     */
     public static func parseClassName() -> String {
         return "Graphical"
     }
