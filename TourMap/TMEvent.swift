@@ -9,7 +9,8 @@
 import Foundation
 import Parse
 
-class TMEvent : PFObject, PFSubclassing {
+/// Event object hold the data from Parse
+public class TMEvent : PFObject, PFSubclassing {
     
     @NSManaged var name : String
     @NSManaged var graphicCanvasPointer : TMGraphical
@@ -18,7 +19,10 @@ class TMEvent : PFObject, PFSubclassing {
         return objectForKey("graphicStickerRelation") as? PFRelation
     }
     
-    override class func initialize() {
+    /**
+     To initialize for the Parse object.
+     */
+    override public class func initialize() {
         struct Static {
             static var onceToken : dispatch_once_t = 0;
         }
@@ -27,7 +31,7 @@ class TMEvent : PFObject, PFSubclassing {
         }
     }
     
-    static func parseClassName() -> String {
+    public static func parseClassName() -> String {
         return "Event"
     }
 }

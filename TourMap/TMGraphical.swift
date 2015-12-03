@@ -9,13 +9,13 @@
 import Foundation
 import Parse
 
-class TMGraphical: PFObject, PFSubclassing {
+public class TMGraphical: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var imageFile : PFFile
     @NSManaged var dimensionsWidth : Int
     @NSManaged var dimensionsHeight : Int
     
-    override class func initialize() {
+    override public class func initialize() {
         struct Static {
             static var onceToken : dispatch_once_t = 0;
         }
@@ -24,7 +24,7 @@ class TMGraphical: PFObject, PFSubclassing {
         }
     }
     
-    static func parseClassName() -> String {
+    public static func parseClassName() -> String {
         return "Graphical"
     }
 }

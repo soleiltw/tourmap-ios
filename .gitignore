@@ -32,4 +32,6 @@ Pods/
 
 Carthage/Build
 
-docs/
+#Jazzy
+Docs
+Build

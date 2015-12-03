@@ -11,6 +11,7 @@ import BFDragGestureRecognizer
 import GestureRecognizerClosures
 import Parse
 
+/// The canvas demo class to present image and gesture.
 class ViewController: UIViewController {
 
     var mapViewBlurView: UIView?
@@ -18,7 +19,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    /// The canvas need to transform scale.
     var canvasTransformScale : Float = 0.6
+    
     var stickerTransformScale : Float = 0.3
     var blurEffectAlpha : CGFloat = 0.6
     
@@ -68,6 +71,13 @@ class ViewController: UIViewController {
         }
     }
     
+    /**
+     Query the stickers and show up in mapview.
+     
+     - Parameters
+        - eventObject:  The object contain event
+        - mapViewFrame: Use for setup random in the area.
+     */
     func queryStickersRelation(eventObject: TMEvent, mapViewFrame: CGRect) {
         // Query relation out
         let stickersQuery = eventObject.graphicStickerRelation.query()
@@ -118,6 +128,7 @@ class ViewController: UIViewController {
                     view.onTap({ (UITapGestureRecognizer) -> Void in
                         print("View.frame = \(view.frame)")
                         
+                        /// Popover http://stackoverflow.com/questions/24635744/how-to-present-popover-properly-in-ios-8
                         let popViewController: TMStickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TMStickerInfoViewController") as! TMStickerInfoViewController
                         
                         popViewController.sticker = sticker
@@ -142,8 +153,9 @@ class ViewController: UIViewController {
 
     /**
         Handle drag recoginized
-        - parameter recoginzer: Passing recoginzer view
-        - returns: no
+        - Parameters
+            - recoginzer: Passing recoginzer view
+        - Returns: no
     */
     func dragRecognized(recognizer:BFDragGestureRecognizer) {
         let view: UIView! = recognizer.view

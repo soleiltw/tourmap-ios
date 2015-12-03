@@ -29,10 +29,11 @@ extension UIImageView {
     }
     
     /**
-        The description
+        Load image from given url string. Also drawing border below it.
      
-        - parameter object:
-        - returns:
+        - Parameters:
+            - urlString: The image url
+            - outlineColor: The color use to draw
      */
     public func imageFromUrl(urlString: String, outlineColor: UIColor) {
         if let url = NSURL(string: urlString) {
@@ -41,7 +42,7 @@ extension UIImageView {
                 (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
                 if let imageData = data as NSData? {
                     self.image = UIImage(data: imageData)
-                    self.image = self.drawOutlien(self.image!, color: outlineColor)
+                    self.image = self.drawOutline(self.image!, color: outlineColor)
                 }
             }
         }
@@ -50,11 +51,12 @@ extension UIImageView {
     /**
         Draw border around content of image. Refrence from [Draw border around content of UIImageView](http://stackoverflow.com/questions/25807455/draw-border-around-content-of-uiimageview)
      
-        - parameter image: The original image.
-        - parameter color: The color for border.
-        - returns: The image with border color.
+        - Parameters:
+            - image: The original image.
+            - color: The color for border.
+        - Returns: The image with border color.
     */
-    public func drawOutlien(image:UIImage, color:UIColor) -> UIImage {
+    public func drawOutline(image:UIImage, color:UIColor) -> UIImage {
         
         let newImageKoef:CGFloat = 1.1
         
