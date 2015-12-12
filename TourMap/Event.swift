@@ -1,5 +1,5 @@
 //
-//  TMEvent.swift
+//  Event.swift
 //  TourMap
 //
 //  Created by Edward Chiang on 12/1/15.
@@ -10,10 +10,10 @@ import Foundation
 import Parse
 
 /// Event object hold the data from Parse
-public class TMEvent : PFObject, PFSubclassing {
+public class Event : PFObject, PFSubclassing {
     
     @NSManaged var name : String
-    @NSManaged var graphicCanvasPointer : TMGraphical
+    @NSManaged var graphicCanvasPointer : Graphical
     
     var graphicStickerRelation : PFRelation! {
         return objectForKey("graphicStickerRelation") as? PFRelation

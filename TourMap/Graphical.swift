@@ -1,5 +1,5 @@
 //
-//  TMGraphical.swift
+//  Graphical.swift
 //  TourMap
 //
 //  Created by Edward Chiang on 12/1/15.
@@ -10,7 +10,7 @@ import Foundation
 import Parse
 
 /// Graphical object hold the data from Parse
-public class TMGraphical: PFObject, PFSubclassing {
+public class Graphical: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var imageFile : PFFile
     @NSManaged var dimensionsWidth : Int

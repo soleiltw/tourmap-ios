@@ -47,11 +47,11 @@ class ViewController: UIViewController {
         
         // Query from parse
         loadingView?.startAnimating()
-        let eventQuery = TMEvent.query()
+        let eventQuery = Event.query()
         eventQuery!.whereKey("objectId", equalTo: "UdCDGMudrh")
         eventQuery?.includeKey("graphicCanvasPointer")
         eventQuery!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
-            let eventObject = object as! TMEvent
+            let eventObject = object as! Event
             self.loadingView?.stopAnimating()
             XCGLogger.defaultInstance().debug("Event object: \(eventObject)")
             
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         - eventObject:  The object contain event
         - mapViewFrame: Use for setup random in the area.
      */
-    func queryStickersRelation(eventObject: TMEvent, mapViewFrame: CGRect) {
+    func queryStickersRelation(eventObject: Event, mapViewFrame: CGRect) {
         // Query relation out
         let stickersQuery = eventObject.graphicStickerRelation.query()
         stickersQuery?.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
@@ -117,11 +117,11 @@ class ViewController: UIViewController {
             
             if objects != nil {
                 
-                let stickerInView : TMStickToViewManager = TMStickToViewManager()
+                let stickerInView : StickToViewManager = StickToViewManager()
                 
                 for object : PFObject in objects! {
-                    
-                    let sticker = object as! TMGraphical
+                
+                    let sticker = object as! Graphical
                     
                     // Setup scale size
                     let scaleWidth : CGFloat = CGFloat(Float(sticker.dimensionsWidth) * self.stickerTransformScale)
@@ -150,7 +150,7 @@ class ViewController: UIViewController {
                         XCGLogger.defaultInstance().debug("View.frame = \(view.frame)")
                         
                         /// Popover http://stackoverflow.com/questions/24635744/how-to-present-popover-properly-in-ios-8
-                        let popViewController: TMStickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TMStickerInfoViewController") as! TMStickerInfoViewController
+                        let popViewController: StickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("StickerInfoViewController") as! StickerInfoViewController
                         
                         popViewController.sticker = sticker
                         

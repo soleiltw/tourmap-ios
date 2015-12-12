@@ -1,5 +1,5 @@
 //
-//  TMStickToViewManager.swift
+//  StickToViewManager.swift
 //  TourMap
 //
 //  Created by Edward Chiang on 12/3/15.
@@ -9,7 +9,7 @@
 import UIKit
 
 /// A manager to handle sticker to parent view.
-public class TMStickToViewManager: NSObject {
+public class StickToViewManager: NSObject {
     
     /**
      Generate random point.

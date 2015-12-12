@@ -1,5 +1,5 @@
 //
-//  TMStickerInfoViewController.swift
+//  StickerInfoViewController.swift
 //  TourMap
 //
 //  Created by Edward Chiang on 12/2/15.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TMStickerInfoViewController: UIViewController {
+class StickerInfoViewController: UIViewController {
     
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var titleLabel: UILabel!
     
-    var sticker: TMGraphical?
+    var sticker: Graphical?
     
     override func viewDidLoad() {
         super.viewDidLoad()
