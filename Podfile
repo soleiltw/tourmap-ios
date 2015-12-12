@@ -6,6 +6,9 @@ use_frameworks!
 
 pod 'Facebook-iOS-SDK'
 pod 'Parse'
-pod 'AFNetworking'
 pod 'BFDragGestureRecognizer'
 pod 'GestureRecognizerClosures'
+pod 'Font-Awesome-Swift'
+pod 'XCGLogger'
+pod 'Alamofire'
+pod 'AlamofireImage'

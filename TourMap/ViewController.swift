@@ -10,6 +10,8 @@ import UIKit
 import BFDragGestureRecognizer
 import GestureRecognizerClosures
 import Parse
+import Font_Awesome_Swift
+import XCGLogger
 
 /// The canvas demo class to present image and gesture.
 class ViewController: UIViewController {
@@ -29,10 +31,12 @@ class ViewController: UIViewController {
     var mapImageView: UIImageView!
     var startCenter: CGPoint!
     
+    var infoButton : UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("UIScreen.mainScreen().bounds = \(UIScreen.mainScreen().bounds)")
+        XCGLogger.defaultInstance().debug("UIScreen.mainScreen().bounds = \(UIScreen.mainScreen().bounds)")
 
         // Init map image view
         self.mapImageView = UIImageView()
@@ -49,7 +53,7 @@ class ViewController: UIViewController {
         eventQuery!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
             let eventObject = object as! TMEvent
             self.loadingView?.stopAnimating()
-            print("Event object: \(eventObject)")
+            XCGLogger.defaultInstance().debug("Event object: \(eventObject)")
             
             // Put image url to view
             self.mapImageView.imageFromUrl(eventObject.graphicCanvasPointer.imageFile.url!)
@@ -69,6 +73,31 @@ class ViewController: UIViewController {
             self.mapImageView.addSubview(self.mapViewBlurView!)
             
             self.queryStickersRelation(eventObject, mapViewFrame:self.mapImageView.frame)
+        }
+        
+        // Add pinch gesture
+        self.mapImageView.onPinch { (pinchGestureRecognizer) -> Void in
+            XCGLogger.defaultInstance().debug("Pinch scale: \(pinchGestureRecognizer.scale), velocity: \(pinchGestureRecognizer.velocity)")
+        }
+        
+        // Setup info button
+        infoButton = UIButton()
+        self.infoButton.setFAIcon(FAType.FAInfoCircle, iconSize: 36, forState: .Normal)
+        self.infoButton.sizeToFit()
+        self.infoButton.frame = CGRectMake(0, 0, self.infoButton.frame.width, self.infoButton.frame.height)
+        self.view.addSubview(infoButton)
+        
+        self.infoButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        let infoButtonTopEdgeConstraint = NSLayoutConstraint(item: self.infoButton, attribute: .TopMargin, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 36)
+        
+        let infoButtonRightEdgeConstraint = NSLayoutConstraint(item: self.infoButton, attribute: .RightMargin, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: -36 )
+        
+        self.view.addConstraint(infoButtonTopEdgeConstraint)
+        self.view.addConstraint(infoButtonRightEdgeConstraint)
+        
+        self.infoButton.onTap { (UITapGestureRecognizer) -> Void in
+            XCGLogger.defaultInstance().debug("infoButton.onTap")
         }
     }
     
@@ -118,7 +147,7 @@ class ViewController: UIViewController {
                     view.addGestureRecognizer(holdDragRecognizer)
                     
                     view.onTap({ (UITapGestureRecognizer) -> Void in
-                        print("View.frame = \(view.frame)")
+                        XCGLogger.defaultInstance().debug("View.frame = \(view.frame)")
                         
                         /// Popover http://stackoverflow.com/questions/24635744/how-to-present-popover-properly-in-ios-8
                         let popViewController: TMStickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TMStickerInfoViewController") as! TMStickerInfoViewController

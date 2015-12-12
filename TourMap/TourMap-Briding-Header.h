@@ -9,4 +9,3 @@
 #import <BFDragGestureRecognizer/BFDragGestureRecognizer.h>
 #import <Parse/Parse.h>
 #import <Bolts/BFTask.h>
-#import <AFNetworking/AFNetworking.h>
