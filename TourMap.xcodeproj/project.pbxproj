@@ -24,6 +24,7 @@
 		1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 		1CB3E5BA1C0F017100F40503 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */; };
 		1CB3E5BC1C1041BC00F40503 /* TMStickToViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3E5BB1C1041BC00F40503 /* TMStickToViewManager.swift */; };
+		1CDCE39E1C1BE3600019F933 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TourMap-Briding-Header.h"; sourceTree = "<group>"; };
 		1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1CB3E5BB1C1041BC00F40503 /* TMStickToViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMStickToViewManager.swift; sourceTree = "<group>"; };
+		1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,6 +149,7 @@
 		1C1699C41BF6623300339DF4 /* TourMapUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */,
 				1C1699C51BF6623300339DF4 /* TourMapUITests.swift */,
 				1C1699C71BF6623300339DF4 /* Info.plist */,
 			);
@@ -415,6 +418,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C1699C61BF6623300339DF4 /* TourMapUITests.swift in Sources */,
+				1CDCE39E1C1BE3600019F933 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
