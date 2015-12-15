@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0211828E7343104A361A50C7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */; };
+		1C14759D1C1FE5CC00ED01A7 /* Painter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C14759C1C1FE5CC00ED01A7 /* Painter.swift */; };
 		1C1699A61BF6623300339DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699A51BF6623300339DF4 /* AppDelegate.swift */; };
-		1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699A71BF6623300339DF4 /* ViewController.swift */; };
+		1C1699A81BF6623300339DF4 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699A71BF6623300339DF4 /* DemoViewController.swift */; };
 		1C1699AB1BF6623300339DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699A91BF6623300339DF4 /* Main.storyboard */; };
 		1C1699AD1BF6623300339DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AC1BF6623300339DF4 /* Assets.xcassets */; };
 		1C1699B01BF6623300339DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AE1BF6623300339DF4 /* LaunchScreen.storyboard */; };
@@ -46,9 +47,10 @@
 
 /* Begin PBXFileReference section */
 		08FF4725F9908413608468CC /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1C14759C1C1FE5CC00ED01A7 /* Painter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Painter.swift; sourceTree = "<group>"; };
 		1C1699A21BF6623300339DF4 /* TourMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C1699A51BF6623300339DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C1699A71BF6623300339DF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1C1699A71BF6623300339DF4 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		1C1699AA1BF6623300339DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C1699AC1BF6623300339DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C1699AF1BF6623300339DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				1CA797471C0D796A0015FF51 /* Event.swift */,
 				1CA7974A1C0D7D7A0015FF51 /* Graphical.swift */,
+				1C14759C1C1FE5CC00ED01A7 /* Painter.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -168,7 +171,7 @@
 		1CB3E5BD1C10429B00F40503 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				1C1699A71BF6623300339DF4 /* ViewController.swift */,
+				1C1699A71BF6623300339DF4 /* DemoViewController.swift */,
 				1C23B8C01C0ED1EE00C5DFEB /* StickerInfoViewController.swift */,
 			);
 			name = ViewControllers;
@@ -394,7 +397,8 @@
 			files = (
 				1CA7974B1C0D7D7A0015FF51 /* Graphical.swift in Sources */,
 				1C23B8C11C0ED1EE00C5DFEB /* StickerInfoViewController.swift in Sources */,
-				1C1699A81BF6623300339DF4 /* ViewController.swift in Sources */,
+				1C1699A81BF6623300339DF4 /* DemoViewController.swift in Sources */,
+				1C14759D1C1FE5CC00ED01A7 /* Painter.swift in Sources */,
 				1CA7974E1C0D96580015FF51 /* UIImageView+Extension.swift in Sources */,
 				1CA797481C0D796A0015FF51 /* Event.swift in Sources */,
 				1CB3E5BC1C1041BC00F40503 /* StickToViewManager.swift in Sources */,
