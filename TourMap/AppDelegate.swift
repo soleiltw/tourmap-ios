@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import XCGLogger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("WL4YP2JOnK9ks4rzNZ9UxKUhqgMIkzX0I9Q77ftF", clientKey:"2swAK4ufGMU980sHacenaO1UykHE7GJUe123s02g")
         Event.initialize()
         Graphical.initialize()
+        
+        // Log setup https://github.com/DaveWoodCom/XCGLogger
+        #if DEBUG
+            XCGLogger.defaultInstance().setup(.Debug, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile:nil, fileLogLevel: .Info)
+        #else
+            XCGLogger.defaultInstance().setup(.Warning, showThreadName: true, showLogLevel: true, showFileNames: true, showLineNumbers: true, writeToFile:nil, fileLogLevel: .Warning)
+        #endif
         
         return true
     }

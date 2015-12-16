@@ -17,19 +17,22 @@ struct BlurEffect {
     static let transparentAlpha : CGFloat = 0.6
 }
 
+struct Demo {
+    static let eventObjectId : String = "UdCDGMudrh"
+}
+
 /// The canvas demo class to present image and gesture.
 class DemoViewController: UIViewController {
-
+    
     /// Add a blur view on map view while user interact with.
     var mapViewBlurView: UIView?
-    let transparentAlpha : CGFloat = 0.6
     
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     
     /// The canvas need to transform scale.
     var painter : Painter?
-
+    
     var mapImageView: UIImageView!
     
     /// Hold for drag recognizer
@@ -47,7 +50,7 @@ class DemoViewController: UIViewController {
         super.viewDidLoad()
         
         XCGLogger.defaultInstance().debug("UIScreen.mainScreen().bounds = \(UIScreen.mainScreen().bounds)")
-
+        
         // Init map image view
         self.mapImageView = UIImageView()
         self.mapImageView.userInteractionEnabled = true
@@ -57,7 +60,7 @@ class DemoViewController: UIViewController {
         // Query from parse
         loadingView?.startAnimating()
         let eventQuery = Event.query()
-        eventQuery!.whereKey("objectId", equalTo: "UdCDGMudrh")
+        eventQuery!.whereKey("objectId", equalTo: Demo.eventObjectId)
         eventQuery?.includeKey("graphicCanvasPointer")
         eventQuery!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
             let eventObject = object as! Event
@@ -82,7 +85,7 @@ class DemoViewController: UIViewController {
             XCGLogger.defaultInstance().debug("Painter: \(self.painter?.debugDescription)")
             
             self.painter?.currentScale = self.painter?.minScale
-
+            
             
             let scaleWidth = Float((self.eventObject?.graphicCanvasPointer.dimensionsWidth)!) * (self.painter?.currentScale?.canvas)!
             let scaleHeight = Float((self.eventObject?.graphicCanvasPointer.dimensionsHeight)!) * (self.painter?.currentScale?.canvas)!
@@ -94,7 +97,7 @@ class DemoViewController: UIViewController {
             // Init blur effect
             self.mapViewBlurView = UIView()
             self.mapViewBlurView?.backgroundColor = UIColor.blackColor()
-            self.mapViewBlurView!.alpha = self.transparentAlpha
+            self.mapViewBlurView!.alpha = BlurEffect.transparentAlpha
             self.mapViewBlurView!.hidden = true
             self.mapImageView.addSubview(self.mapViewBlurView!)
             
@@ -122,23 +125,26 @@ class DemoViewController: UIViewController {
         infoButton.onTap { (UITapGestureRecognizer) -> Void in
             XCGLogger.defaultInstance().debug("infoButton.onTap")
             
-            // http://stackoverflow.com/questions/24224916/presenting-a-uialertcontroller-properly-on-an-ipad-using-ios-8
+            dispatch_async(dispatch_get_main_queue(), {
+                // http://stackoverflow.com/questions/24224916/presenting-a-uialertcontroller-properly-on-an-ipad-using-ios-8
+                let alertController = UIAlertController(title: "Information Center", message: "To know more info", preferredStyle: UIAlertControllerStyle.ActionSheet)
+                alertController.addAction(UIAlertAction(title: "台北村落之聲報導", style: .Default, handler: { (alertAction) -> Void in
+                    UIApplication.sharedApplication().openURL(NSURL(string: "http://www.urstaipei.net/archives/19470")!)
+                }))
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alertAction) -> Void in
+                }))
+                
+                alertController.modalPresentationStyle = .Popover
+                
+                let popOverViewController = alertController.popoverPresentationController
+                popOverViewController?.permittedArrowDirections = .Any
+                popOverViewController?.sourceView = infoButton
+                popOverViewController?.sourceRect = infoButton.bounds
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            })
             
-            let alertController = UIAlertController(title: "Information Center", message: "To know more info", preferredStyle: UIAlertControllerStyle.ActionSheet)
-            alertController.addAction(UIAlertAction(title: "台北村落之聲報導", style: .Default, handler: { (alertAction) -> Void in
-                UIApplication.sharedApplication().openURL(NSURL(string: "http://www.urstaipei.net/archives/19470")!)
-            }))
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alertAction) -> Void in
-            }))
             
-            alertController.modalPresentationStyle = .Popover
-            
-            let popOverViewController = alertController.popoverPresentationController
-            popOverViewController?.permittedArrowDirections = .Any
-            popOverViewController?.sourceView = infoButton
-            popOverViewController?.sourceRect = infoButton.bounds
-            
-            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
@@ -192,21 +198,22 @@ class DemoViewController: UIViewController {
             XCGLogger.defaultInstance().debug("Map image view frame: \(self.mapImageView!.frame)")
         }
     }
-
+    
     /**
      Query the stickers and show up in mapview.
      
      - Parameters
-        - eventObject:  The object contain event
-        - mapViewFrame: Use for setup random in the area.
+     - eventObject:  The object contain event
+     - mapViewFrame: Use for setup random in the area.
      */
     func queryStickersRelation(eventObject: Event, mapViewFrame: CGRect) {
         // Query relation out
-        let stickersQuery = eventObject.graphicStickerRelation.query()
-        stickersQuery?.cachePolicy = PFCachePolicy.CacheThenNetwork
-        stickersQuery?.limit = 10
-        stickersQuery?.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
-    
+        let stickersQuery : PFQuery = eventObject.graphicStickerRelation.query()!
+        stickersQuery.cachePolicy = PFCachePolicy.CacheThenNetwork
+        stickersQuery.limit = 10
+        stickersQuery.maxCacheAge = 5 * 60 * 1000
+        stickersQuery.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
+            
             self.loadingView?.stopAnimating()
             
             for view in self.mapImageView.subviews{
@@ -262,6 +269,8 @@ class DemoViewController: UIViewController {
         view.onTap({ (UITapGestureRecognizer) -> Void in
             XCGLogger.defaultInstance().debug("View.frame = \(view.frame)")
             
+            // FIXME: Snapshotting a view that has not been rendered results in an empty snapshot. Ensure your view has been rendered at least once before snapshotting or snapshot after screen updates.
+            
             /// Popover http://stackoverflow.com/questions/24635744/how-to-present-popover-properly-in-ios-8
             let popViewController: StickerInfoViewController = self.storyboard?.instantiateViewControllerWithIdentifier("StickerInfoViewController") as! StickerInfoViewController
             
@@ -284,11 +293,11 @@ class DemoViewController: UIViewController {
     }
     
     /**
-        Handle drag recoginized
-        - Parameters
-            - recoginzer: Passing recoginzer view
-        - Returns: no
-    */
+     Handle drag recoginized
+     - Parameters
+     - recoginzer: Passing recoginzer view
+     - Returns: no
+     */
     func dragRecognized(recognizer:BFDragGestureRecognizer) {
         let view: UIView! = recognizer.view
         
@@ -325,10 +334,10 @@ class DemoViewController: UIViewController {
             
         }
     }
-
+    
     class GraphicImageView: UIImageView {
         var graphicInfo : Graphical?
     }
-
+    
 }
 
