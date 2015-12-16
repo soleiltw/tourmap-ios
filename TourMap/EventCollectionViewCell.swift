@@ -20,7 +20,7 @@ class EventCollectionViewCell: UICollectionViewCell {
         
         self.layer.borderColor = UIColor.grayColor().CGColor
         self.layer.borderWidth = 1
-        self.layer.cornerRadius = 5
+        self.layer.cornerRadius = 3
         
         self.layer.shadowOffset = CGSizeMake(5, 5);
         self.layer.shadowRadius = 5;

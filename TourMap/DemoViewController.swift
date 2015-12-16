@@ -213,12 +213,12 @@ class DemoViewController: UIViewController {
             self.scrollView.contentSize = self.mapImageView.frame.size
             
             // Update for the sticker view
-            for view in self.mapImageView.subviews{
-                let scale = (self.painter?.currentScale?.canvas)!
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    // Handle the subview
-                })
-            }
+//            for view in self.mapImageView.subviews{
+//                let scale = (self.painter?.currentScale?.canvas)!
+//                UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                    // Handle the subview
+//                })
+//            }
         })
     }
     

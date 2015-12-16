@@ -23,25 +23,25 @@
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYc-gB-Oyg">
                                 <rect key="frame" x="20" y="97" width="560" height="503"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="yrl-2Z-HzP">
-                                    <size key="itemSize" width="330" height="270"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="50" minimumInteritemSpacing="50" id="yrl-2Z-HzP">
+                                    <size key="itemSize" width="360" height="240"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventImageCollectionCell" id="mqd-3s-5F3" customClass="EventCollectionViewCell" customModule="TourMap" customModuleProvider="target">
-                                        <rect key="frame" x="115" y="0.0" width="330" height="270"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventImageIPadCell" id="mqd-3s-5F3" customClass="EventCollectionViewCell" customModule="TourMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="220"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="330" height="270"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="280" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VfS-Wp-xPy">
-                                                    <rect key="frame" x="8" y="8" width="314" height="192"/>
+                                                    <rect key="frame" x="8" y="8" width="264" height="142"/>
                                                 </imageView>
                                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvY-Pf-Nmi">
-                                                    <rect key="frame" x="8" y="221" width="314" height="27"/>
+                                                    <rect key="frame" x="8" y="171" width="264" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -59,10 +59,46 @@
                                             <constraint firstAttribute="bottomMargin" secondItem="VfS-Wp-xPy" secondAttribute="bottom" constant="62" id="c2A-0V-ztl"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="SvY-Pf-Nmi" secondAttribute="bottom" constant="14" id="jY7-SD-VUX"/>
                                         </constraints>
+                                        <size key="customSize" width="280" height="220"/>
                                         <connections>
                                             <outlet property="imageView" destination="VfS-Wp-xPy" id="vxw-ip-KdG"/>
                                             <outlet property="nameLabel" destination="SvY-Pf-Nmi" id="AeV-eG-jJz"/>
                                             <segue destination="BYZ-38-t0r" kind="showDetail" identifier="showDemo" id="AS1-UZ-6k7"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="EventImageIPhoneCell" id="9v5-VQ-c3H" customClass="EventCollectionViewCell" customModule="TourMap" customModuleProvider="target">
+                                        <rect key="frame" x="330" y="40" width="200" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-y5-ebR">
+                                                    <rect key="frame" x="8" y="8" width="184" height="95"/>
+                                                </imageView>
+                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xw8-Ht-AEp">
+                                                    <rect key="frame" x="8" y="111" width="184" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="xw8-Ht-AEp" firstAttribute="top" secondItem="dj1-y5-ebR" secondAttribute="bottom" constant="8" id="1eh-NP-Gnx"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="xw8-Ht-AEp" secondAttribute="leading" id="5um-SG-XyL"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="xw8-Ht-AEp" secondAttribute="trailing" id="En7-fl-gMJ"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="dj1-y5-ebR" secondAttribute="leading" id="UEA-QU-LEk"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="xw8-Ht-AEp" secondAttribute="bottom" id="g2g-pN-CzY"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="dj1-y5-ebR" secondAttribute="trailing" id="lJR-KK-sbY"/>
+                                            <constraint firstAttribute="topMargin" secondItem="dj1-y5-ebR" secondAttribute="top" id="rGn-fS-nGP"/>
+                                        </constraints>
+                                        <size key="customSize" width="200" height="140"/>
+                                        <connections>
+                                            <outlet property="imageView" destination="dj1-y5-ebR" id="8He-FQ-Wzd"/>
+                                            <outlet property="nameLabel" destination="xw8-Ht-AEp" id="JiL-Lj-hqW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

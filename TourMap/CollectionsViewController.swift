@@ -10,6 +10,13 @@ import UIKit
 import Parse
 import AlamofireImage
 
+struct CollectionViewCellSize {
+    static let iPadWidth : CGFloat = 280
+    static let iPadHeight : CGFloat = 220
+    static let iPhoneWidth : CGFloat = 200
+    static let iPhoneHeight : CGFloat = 140
+}
+
 class CollectionsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -23,6 +30,8 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
         // Do any additional setup after loading the view.
         self.collectionView.backgroundColor = UIColor.clearColor()
         
+        self.collectionView.collectionViewLayout.invalidateLayout()
+        
         self.loadingView.hidden = false
         self.loadingView.startAnimating()
         let eventQuery : PFQuery = Event.query()!
@@ -35,6 +44,9 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
                 self.events.removeAll()
                 for eventParseObject : PFObject in objects! {
                     let eventCastObject : Event = eventParseObject as! Event
+                    self.events.append(eventCastObject)
+                    // FIXME: To Demo, so add 3 times.
+                    self.events.append(eventCastObject)
                     self.events.append(eventCastObject)
                 }
                 self.collectionView.reloadSections(NSIndexSet(index: 0))
@@ -54,7 +66,13 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("EventImageCollectionCell", forIndexPath: indexPath)
+        
+        var cell : UICollectionViewCell = UICollectionViewCell()
+        if ( UI_USER_INTERFACE_IDIOM() == .Pad ) {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("EventImageIPadCell", forIndexPath: indexPath)
+        } else {
+            cell = collectionView.dequeueReusableCellWithReuseIdentifier("EventImageIPhoneCell", forIndexPath: indexPath)
+        }
         
         // Cast to certain cell
         let eventObject : Event = events[indexPath.row]
@@ -66,6 +84,33 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
     }
     
     // MARK: UICollectionViewDelegate
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+        // To get the best of width for collection view.
+        let wideWidth : Int = Int(max(CGRectGetWidth(collectionView.frame), CGRectGetHeight(collectionView.frame)))
+        
+        var eachCellWidth : CGFloat = CGFloat(CollectionViewCellSize.iPadWidth)
+        if ( UI_USER_INTERFACE_IDIOM() == .Phone ) {
+            eachCellWidth = CGFloat(CollectionViewCellSize.iPhoneWidth)
+        }
+        
+        let numberOfInSection : Int = 2
+        let edgeInsets = CGFloat((wideWidth - Int(eachCellWidth) * numberOfInSection) / (numberOfInSection + 1))
+        if edgeInsets > 10 {
+            return UIEdgeInsetsMake(0, edgeInsets, 0, edgeInsets);
+        } else {
+            return UIEdgeInsetsMake(0, 10, 0, 10);
+        }
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+
+        if ( UI_USER_INTERFACE_IDIOM() == .Phone ) {
+            return CGSizeMake(CollectionViewCellSize.iPhoneWidth, CollectionViewCellSize.iPhoneHeight)
+        }
+        return CGSizeMake(CollectionViewCellSize.iPadWidth, CollectionViewCellSize.iPadHeight)
+    }
 
     // MARK: - Navigation
 
