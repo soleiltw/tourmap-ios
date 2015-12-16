@@ -18,7 +18,7 @@ struct BlurEffect {
 }
 
 struct Demo {
-    static let eventObjectId : String = "UdCDGMudrh"
+    static let defaultEventObjectId : String = "UdCDGMudrh"
 }
 
 /// The canvas demo class to present image and gesture.
@@ -42,6 +42,8 @@ class DemoViewController: UIViewController {
     
     var stickerObjects = [Graphical]()
     
+    var eventObjectId : String = Demo.defaultEventObjectId
+    
     override func awakeFromNib() {
         painter = Painter.init(current: 0.6)
     }
@@ -58,9 +60,98 @@ class DemoViewController: UIViewController {
         self.scrollView.addSubview(mapImageView)
         
         // Query from parse
-        loadingView?.startAnimating()
+        self.queryEvent()
+        
+        // Add pinch gesture
+        self.mapImageView.onPinch { (pinchGestureRecognizer) -> Void in
+            // TODO: Support pinch for user zoom in / out
+        }
+        
+        // Setup dimiss button
+        let settingsButton = UIButton()
+        settingsButton.setFAIcon(FAType.FAGear, iconSize: 36, forState: .Normal)
+        settingsButton.sizeToFit()
+        settingsButton.frame = CGRectMake(0, 0, settingsButton.frame.width, settingsButton.frame.height)
+        self.view.addSubview(settingsButton)
+        
+        let layoutMargin : CGFloat = 22
+        
+        settingsButton.translatesAutoresizingMaskIntoConstraints = false
+        let settingsButtonTopEdgeConstraint = NSLayoutConstraint(item: settingsButton, attribute: .TopMargin, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: layoutMargin)
+        let settingsButtonLeftEdgeConstraint = NSLayoutConstraint(item: settingsButton, attribute: .LeftMargin, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: layoutMargin )
+        self.view.addConstraint(settingsButtonTopEdgeConstraint)
+        self.view.addConstraint(settingsButtonLeftEdgeConstraint)
+        
+        settingsButton.onTap { (UITapGestureRecognizer) -> Void in
+            XCGLogger.defaultInstance().debug("dismissButton.onTap")
+            
+            let alertController = UIAlertController(title: "Settings", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            alertController.addAction(UIAlertAction(title: "Close", style: .Destructive, handler: { (alertAction) -> Void in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alertAction) -> Void in
+            }))
+            
+            alertController.modalPresentationStyle = .Popover
+            
+            let popOverViewController = alertController.popoverPresentationController
+            popOverViewController?.permittedArrowDirections = .Any
+            popOverViewController?.sourceView = settingsButton
+            popOverViewController?.sourceRect = settingsButton.bounds
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+        // Setup info button
+        let infoButton = UIButton()
+        infoButton.setFAIcon(FAType.FAInfoCircle, iconSize: 36, forState: .Normal)
+        infoButton.sizeToFit()
+        infoButton.frame = CGRectMake(0, 0, infoButton.frame.width, infoButton.frame.height)
+        self.view.addSubview(infoButton)
+        
+        infoButton.translatesAutoresizingMaskIntoConstraints = false
+        let infoButtonTopEdgeConstraint = NSLayoutConstraint(item: infoButton, attribute: .TopMargin, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: layoutMargin)
+        let infoButtonRightEdgeConstraint = NSLayoutConstraint(item: infoButton, attribute: .RightMargin, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: -layoutMargin )
+        self.view.addConstraint(infoButtonTopEdgeConstraint)
+        self.view.addConstraint(infoButtonRightEdgeConstraint)
+        
+        infoButton.onTap { (UITapGestureRecognizer) -> Void in
+            XCGLogger.defaultInstance().debug("infoButton.onTap")
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                // http://stackoverflow.com/questions/24224916/presenting-a-uialertcontroller-properly-on-an-ipad-using-ios-8
+                let alertController = UIAlertController(title: "Information Center", message: "To know more info", preferredStyle: UIAlertControllerStyle.ActionSheet)
+                alertController.addAction(UIAlertAction(title: "台北村落之聲報導", style: .Default, handler: { (alertAction) -> Void in
+                    UIApplication.sharedApplication().openURL(NSURL(string: "http://www.urstaipei.net/archives/19470")!)
+                }))
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alertAction) -> Void in
+                }))
+                
+                alertController.modalPresentationStyle = .Popover
+                
+                let popOverViewController = alertController.popoverPresentationController
+                popOverViewController?.permittedArrowDirections = .Any
+                popOverViewController?.sourceView = infoButton
+                popOverViewController?.sourceRect = infoButton.bounds
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            })
+            
+            
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: Private
+    
+    func queryEvent() {
+        self.loadingView.startAnimating()
         let eventQuery = Event.query()
-        eventQuery!.whereKey("objectId", equalTo: Demo.eventObjectId)
+        eventQuery!.whereKey("objectId", equalTo: self.eventObjectId)
         eventQuery?.includeKey("graphicCanvasPointer")
         eventQuery!.getFirstObjectInBackgroundWithBlock { (object: PFObject?, error: NSError?) -> Void in
             let eventObject = object as! Event
@@ -103,57 +194,7 @@ class DemoViewController: UIViewController {
             
             self.queryStickersRelation(eventObject, mapViewFrame:self.mapImageView.frame)
         }
-        
-        // Add pinch gesture
-        self.mapImageView.onPinch { (pinchGestureRecognizer) -> Void in
-            // TODO: Support pinch for user zoom in / out
-        }
-        
-        // Setup info button
-        let infoButton = UIButton()
-        infoButton.setFAIcon(FAType.FAInfoCircle, iconSize: 36, forState: .Normal)
-        infoButton.sizeToFit()
-        infoButton.frame = CGRectMake(0, 0, infoButton.frame.width, infoButton.frame.height)
-        self.view.addSubview(infoButton)
-        
-        infoButton.translatesAutoresizingMaskIntoConstraints = false
-        let infoButtonTopEdgeConstraint = NSLayoutConstraint(item: infoButton, attribute: .TopMargin, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 36)
-        let infoButtonRightEdgeConstraint = NSLayoutConstraint(item: infoButton, attribute: .RightMargin, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: -36 )
-        self.view.addConstraint(infoButtonTopEdgeConstraint)
-        self.view.addConstraint(infoButtonRightEdgeConstraint)
-        
-        infoButton.onTap { (UITapGestureRecognizer) -> Void in
-            XCGLogger.defaultInstance().debug("infoButton.onTap")
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                // http://stackoverflow.com/questions/24224916/presenting-a-uialertcontroller-properly-on-an-ipad-using-ios-8
-                let alertController = UIAlertController(title: "Information Center", message: "To know more info", preferredStyle: UIAlertControllerStyle.ActionSheet)
-                alertController.addAction(UIAlertAction(title: "台北村落之聲報導", style: .Default, handler: { (alertAction) -> Void in
-                    UIApplication.sharedApplication().openURL(NSURL(string: "http://www.urstaipei.net/archives/19470")!)
-                }))
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (alertAction) -> Void in
-                }))
-                
-                alertController.modalPresentationStyle = .Popover
-                
-                let popOverViewController = alertController.popoverPresentationController
-                popOverViewController?.permittedArrowDirections = .Any
-                popOverViewController?.sourceView = infoButton
-                popOverViewController?.sourceRect = infoButton.bounds
-                
-                self.presentViewController(alertController, animated: true, completion: nil)
-            })
-            
-            
-        }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    // MARK: Private
     
     func scaleAorB(pinchGestureRecognizer : UIPinchGestureRecognizer) {
         
