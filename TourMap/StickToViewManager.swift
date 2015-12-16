@@ -15,13 +15,13 @@ public class StickToViewManager: NSObject {
      Generate random point.
      
      - Parameters
-        - refrenceFrame: For the boundary.
+        - refrenceView: The refrence main view.
      
      - returns: The random point.
      */
-    public func randomRect(refrenceFrame: CGRect, withSize:CGSize) -> CGPoint {
+    public func randomRect(refrenceView: UIView, withSize:CGSize) -> CGPoint {
         var randomPoint : CGPoint = CGPointZero
-        randomPoint = CGPointMake(CGFloat(random()) % (CGRectGetWidth(refrenceFrame) - withSize.width), CGFloat(random()) % (CGRectGetHeight(refrenceFrame) - withSize.height));
+        randomPoint = CGPointMake(CGFloat(random()) % (CGRectGetWidth(refrenceView.frame) - withSize.width), CGFloat(random()) % (CGRectGetHeight(refrenceView.frame) - withSize.height));
         
         return randomPoint
     }

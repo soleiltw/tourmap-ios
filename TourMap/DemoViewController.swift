@@ -253,7 +253,7 @@ class DemoViewController: UIViewController {
         let scaleWidth : CGFloat = CGFloat(Float(sticker.dimensionsWidth) * (self.painter?.currentScale?.sticker)!)
         let scaleHeight : CGFloat = CGFloat(Float(sticker.dimensionsHeight) * (self.painter?.currentScale?.sticker)!)
         let withSize: CGSize = CGSizeMake(scaleWidth, scaleHeight)
-        let randomPoint: CGPoint = stickerInView.randomRect(self.mapImageView.frame, withSize:withSize)
+        let randomPoint: CGPoint = stickerInView.randomRectWithNoIntersect(self.mapImageView, withSize:withSize)
         let randomRect : CGRect = CGRectMake(randomPoint.x, randomPoint.y, withSize.width, withSize.height)
         view.frame = randomRect
         
