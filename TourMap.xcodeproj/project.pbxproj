@@ -14,8 +14,6 @@
 		1C1699AB1BF6623300339DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699A91BF6623300339DF4 /* Main.storyboard */; };
 		1C1699AD1BF6623300339DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AC1BF6623300339DF4 /* Assets.xcassets */; };
 		1C1699B01BF6623300339DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C1699AE1BF6623300339DF4 /* LaunchScreen.storyboard */; };
-		1C1699BB1BF6623300339DF4 /* TourMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699BA1BF6623300339DF4 /* TourMapTests.swift */; };
-		1C1699C61BF6623300339DF4 /* TourMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C1699C51BF6623300339DF4 /* TourMapUITests.swift */; };
 		1C23B8C11C0ED1EE00C5DFEB /* StickerInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C23B8C01C0ED1EE00C5DFEB /* StickerInfoViewController.swift */; };
 		1C7AE6611C2137D000DA2E44 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7AE6601C2137D000DA2E44 /* CollectionsViewController.swift */; };
 		1C7AE6641C213A9A00DA2E44 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7AE6631C213A9A00DA2E44 /* EventCollectionViewCell.swift */; };
@@ -27,7 +25,6 @@
 		1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA7974D1C0D96570015FF51 /* UIImageView+Extension.swift */; };
 		1CB3E5BA1C0F017100F40503 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */; };
 		1CB3E5BC1C1041BC00F40503 /* StickToViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB3E5BB1C1041BC00F40503 /* StickToViewManager.swift */; };
-		1CDCE39E1C1BE3600019F933 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,10 +55,8 @@
 		1C1699AF1BF6623300339DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C1699B11BF6623300339DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C1699B61BF6623300339DF4 /* TourMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TourMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C1699BA1BF6623300339DF4 /* TourMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMapTests.swift; sourceTree = "<group>"; };
 		1C1699BC1BF6623300339DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C1699C11BF6623300339DF4 /* TourMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TourMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C1699C51BF6623300339DF4 /* TourMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourMapUITests.swift; sourceTree = "<group>"; };
 		1C1699C71BF6623300339DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C23B8C01C0ED1EE00C5DFEB /* StickerInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerInfoViewController.swift; sourceTree = "<group>"; };
 		1C7AE6601C2137D000DA2E44 /* CollectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +67,6 @@
 		1CB37B321BF676190056B6CA /* TourMap-Briding-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TourMap-Briding-Header.h"; sourceTree = "<group>"; };
 		1CB3E5B91C0F017100F40503 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		1CB3E5BB1C1041BC00F40503 /* StickToViewManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickToViewManager.swift; sourceTree = "<group>"; };
-		1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		6F1596E94FDC6764EBA705B6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E3156C65C8EBB2DA8F4BCAA9 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -147,7 +141,6 @@
 		1C1699B91BF6623300339DF4 /* TourMapTests */ = {
 			isa = PBXGroup;
 			children = (
-				1C1699BA1BF6623300339DF4 /* TourMapTests.swift */,
 				1C1699BC1BF6623300339DF4 /* Info.plist */,
 			);
 			path = TourMapTests;
@@ -156,8 +149,6 @@
 		1C1699C41BF6623300339DF4 /* TourMapUITests */ = {
 			isa = PBXGroup;
 			children = (
-				1CDCE39D1C1BE3600019F933 /* SnapshotHelper.swift */,
-				1C1699C51BF6623300339DF4 /* TourMapUITests.swift */,
 				1C1699C71BF6623300339DF4 /* Info.plist */,
 			);
 			path = TourMapUITests;
@@ -428,7 +419,6 @@
 			files = (
 				1CA7974C1C0D7D7A0015FF51 /* Graphical.swift in Sources */,
 				1CA797491C0D796A0015FF51 /* Event.swift in Sources */,
-				1C1699BB1BF6623300339DF4 /* TourMapTests.swift in Sources */,
 				1CA7974F1C0D96590015FF51 /* UIImageView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,8 +427,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C1699C61BF6623300339DF4 /* TourMapUITests.swift in Sources */,
-				1CDCE39E1C1BE3600019F933 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
