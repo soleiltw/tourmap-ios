@@ -9,6 +9,7 @@
 import UIKit
 import Parse
 import AlamofireImage
+import XCGLogger
 
 struct CollectionViewCellSize {
     static let iPadWidth : CGFloat = 280
@@ -36,6 +37,7 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
         self.loadingView.startAnimating()
         let eventQuery : PFQuery = Event.query()!
         eventQuery.includeKey("graphicCanvasPointer")
+        eventQuery.includeKey("graphicStickerRelation")
         eventQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
             
             self.loadingView.stopAnimating()
@@ -44,9 +46,6 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
                 self.events.removeAll()
                 for eventParseObject : PFObject in objects! {
                     let eventCastObject : Event = eventParseObject as! Event
-                    self.events.append(eventCastObject)
-                    // FIXME: To Demo, so add 3 times.
-                    self.events.append(eventCastObject)
                     self.events.append(eventCastObject)
                 }
                 self.collectionView.reloadSections(NSIndexSet(index: 0))
@@ -77,6 +76,9 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
         // Cast to certain cell
         let eventObject : Event = events[indexPath.row]
         let eventCell : EventCollectionViewCell = cell as! EventCollectionViewCell
+        
+        XCGLogger.debug("Load image url: \(eventObject.graphicCanvasPointer.imageFile.url! as String)")
+        
         eventCell.imageView.af_setImageWithURL(NSURL(string: eventObject.graphicCanvasPointer.imageFile.url!)!)
         eventCell.nameLabel.text = eventObject.name
         
@@ -121,7 +123,12 @@ class CollectionsViewController: UIViewController, UICollectionViewDataSource, U
         segue.destinationViewController
         if  segue.identifier == "showDemo" {
             let demoViewController : DemoViewController = segue.destinationViewController as! DemoViewController
-            demoViewController.eventObjectId = Demo.defaultEventObjectId
+            
+            let cell = sender as! UICollectionViewCell
+            let indexPath = self.collectionView!.indexPathForCell(cell)
+            let eventObject : Event = events[indexPath!.row]
+            
+            demoViewController.eventObjectId = eventObject.objectId!
         }
     }
 

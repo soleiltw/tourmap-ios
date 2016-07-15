@@ -17,9 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
         
-        Parse.setApplicationId("WL4YP2JOnK9ks4rzNZ9UxKUhqgMIkzX0I9Q77ftF", clientKey:"2swAK4ufGMU980sHacenaO1UykHE7GJUe123s02g")
+        Parse.initializeWithConfiguration(ParseClientConfiguration.init(block: { (parseMutableClientConfiguration) -> Void in
+            parseMutableClientConfiguration.applicationId = "WL4YP2JOnK9ks4rzNZ9UxKUhqgMIkzX0I9Q77ftF"
+            parseMutableClientConfiguration.clientKey = "2swAK4ufGMU980sHacenaO1UykHE7GJUe123s02g"
+            parseMutableClientConfiguration.server = "http://timetravelmap.herokuapp.com/parse"
+        }))
+
+//        Parse.initializeWithConfiguration(ParseClientConfiguration.init(block: { (parseMutableClientConfiguration) -> Void in
+//                    parseMutableClientConfiguration.applicationId = "WL4YP2JOnK9ks4rzNZ9UxKUhqgMIkzX0I9Q77ftF"
+//                    parseMutableClientConfiguration.clientKey = "2swAK4ufGMU980sHacenaO1UykHE7GJUe123s02g"
+//                    parseMutableClientConfiguration.server = "https://api.parse.com/1/"
+//                }))
+        
         Event.initialize()
         Graphical.initialize()
         

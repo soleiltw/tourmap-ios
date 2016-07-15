@@ -213,12 +213,12 @@ class DemoViewController: UIViewController {
             self.scrollView.contentSize = self.mapImageView.frame.size
             
             // Update for the sticker view
-//            for view in self.mapImageView.subviews{
-//                let scale = (self.painter?.currentScale?.canvas)!
-//                UIView.animateWithDuration(0.5, animations: { () -> Void in
-//                    // Handle the subview
-//                })
-//            }
+            //            for view in self.mapImageView.subviews{
+            //                let scale = (self.painter?.currentScale?.canvas)!
+            //                UIView.animateWithDuration(0.5, animations: { () -> Void in
+            //                    // Handle the subview
+            //                })
+            //            }
         })
     }
     
@@ -249,33 +249,36 @@ class DemoViewController: UIViewController {
      */
     func queryStickersRelation(eventObject: Event, mapViewFrame: CGRect) {
         // Query relation out
-        let stickersQuery : PFQuery = eventObject.graphicStickerRelation.query()!
-        stickersQuery.cachePolicy = PFCachePolicy.CacheThenNetwork
-        stickersQuery.limit = 10
-        stickersQuery.maxCacheAge = 5 * 60 * 1000
-        stickersQuery.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
-            
-            self.loadingView?.stopAnimating()
-            
-            for view in self.mapImageView.subviews{
-                view.removeFromSuperview()
-            }
-            self.mapImageView.addSubview(self.mapViewBlurView!)
-            
-            if objects != nil {
+        if eventObject.graphicStickerRelation != nil {
+            let stickersQuery : PFQuery = eventObject.graphicStickerRelation.query()
+            stickersQuery.cachePolicy = PFCachePolicy.CacheThenNetwork
+            stickersQuery.limit = 10
+            stickersQuery.maxCacheAge = 5 * 60 * 1000
+            stickersQuery.findObjectsInBackgroundWithBlock({ (objects : [PFObject]?, error: NSError?) -> Void in
                 
-                let stickerInView : StickToViewManager = StickToViewManager()
-                self.stickerObjects.removeAll()
+                self.loadingView?.stopAnimating()
                 
-                for object : PFObject in objects! {
-                    let sticker = object as! Graphical
-                    self.stickerObjects.append(sticker)
-                    let view = self.createGraphicImageView(sticker, stickerInView: stickerInView)
-                    self.mapImageView.addSubview(view)
+                for view in self.mapImageView.subviews{
+                    view.removeFromSuperview()
                 }
-            }
+                self.mapImageView.addSubview(self.mapViewBlurView!)
+                
+                if objects != nil {
+                    
+                    let stickerInView : StickToViewManager = StickToViewManager()
+                    self.stickerObjects.removeAll()
+                    
+                    for object : PFObject in objects! {
+                        let sticker = object as! Graphical
+                        self.stickerObjects.append(sticker)
+                        let view = self.createGraphicImageView(sticker, stickerInView: stickerInView)
+                        self.mapImageView.addSubview(view)
+                    }
+                }
+                
+            })
             
-        })
+        }
     }
     
     func createGraphicImageView(sticker: Graphical, stickerInView: StickToViewManager) -> UIImageView {

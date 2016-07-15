@@ -4,7 +4,7 @@ platform :ios, '8.0'
 
 use_frameworks!
 
-pod 'Facebook-iOS-SDK'
+pod 'FBSDKCoreKit'
 pod 'Parse'
 pod 'BFDragGestureRecognizer'
 pod 'GestureRecognizerClosures'

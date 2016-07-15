@@ -16,7 +16,7 @@ public class Event : PFObject, PFSubclassing {
     @NSManaged var graphicCanvasPointer : Graphical
     
     var graphicStickerRelation : PFRelation! {
-        return objectForKey("graphicStickerRelation") as? PFRelation
+        return self.relationForKey("graphicStickerRelation")
     }
     
     /**
